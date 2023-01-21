@@ -1,3 +1,5 @@
 export function Home() {
-    return
+    return(
+        <div>ola</div>
+    )
 }
