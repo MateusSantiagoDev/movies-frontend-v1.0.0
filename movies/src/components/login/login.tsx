@@ -1,11 +1,13 @@
 import * as Style from "./style";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { Path } from "../../types/routes";
 import { Api } from "../../data/api/api";
 
 export function Login() {
   const navigate = useNavigate();
+  const [buttonpassword, setButtonPassword] = useState<boolean>(false)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,7 +27,10 @@ export function Login() {
         <Style.Form onSubmit={handleSubmit}>
           <h2>Login</h2>
           <input placeholder="email" type="email" name="email" />
-          <input placeholder="password" type="password" name="password" />
+          <Style.DivButtonInput>
+          <input placeholder="password" type={buttonpassword? "text" : "password" }/>
+          <button onClick={() => setButtonPassword(!buttonpassword)}>{buttonpassword? <BsEyeFill/> : <BsEyeSlashFill/>}</button>
+          </Style.DivButtonInput>
           <button type="submit">Login</button>
           <Style.Register>
             <Style.ButtonRegister

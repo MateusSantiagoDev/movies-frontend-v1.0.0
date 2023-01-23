@@ -24,6 +24,20 @@ ${({theme})=> css`
 background-color: ${theme.colors.baseBg3};
 height: 100%;
 width: 20%;
+text-align: center;
+padding-top: 25%;
 `}
 `;
+
+export const MenuItem = styled.button`
+${({theme})=> css`
+margin: 2rem;
+cursor: pointer;
+border: none;
+font-family: ${theme.source.fontFamily};
+background-color: ${theme.colors.baseBg3};
+`}
+`
+
+
 

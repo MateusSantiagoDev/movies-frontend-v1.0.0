@@ -51,4 +51,10 @@ border: none;
 background-color: ${theme.colors.baseBg3};
 cursor: pointer;
 `}
+`;
+
+export const DivButtonInput = styled.button`
+display: flex;
+flex-direction: row;
+margin: 0 auto;
 `

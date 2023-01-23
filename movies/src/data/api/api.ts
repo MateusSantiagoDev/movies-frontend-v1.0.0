@@ -1,6 +1,7 @@
 import { LoginRequest } from "../types/types";
 
-const baseUrl = "https://movies-backend-production.up.railway.app";
+/* const baseUrl = "https://movies-backend-production.up.railway.app"; */
+const baseUrl = "http://localhost:3001"
 
 export const Api = {
   login: async ({email, password}: LoginRequest) => {
