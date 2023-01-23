@@ -15,10 +15,12 @@ export function Login() {
     };
 
     const response = await Api.login(LoginPayload);
-    console.log(response);
+    if(response) {
+      navigate(Path.HOME);
+    }
   }
   return (
-    <Style.Body>
+    <Style.Body>  
       <Style.Login>
         <Style.Form onSubmit={handleSubmit}>
           <h2>Login</h2>

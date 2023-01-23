@@ -12,4 +12,10 @@ export const Api = {
     const autorization = await response.json();
     return autorization;
   },
+
+  getMovie: async () => {
+    const response = await fetch(baseUrl + "/movie");
+      const card = response.json();
+      return card;      
+  }
 }
