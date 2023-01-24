@@ -25,13 +25,13 @@ background-color: ${theme.colors.baseBg3};
 height: 100%;
 width: 20%;
 text-align: center;
-padding-top: 25%;
+padding-top: 2rem;
 `}
 `;
 
 export const MenuItem = styled.button`
 ${({theme})=> css`
-margin: 2rem;
+margin: 1.5rem 2rem;
 cursor: pointer;
 border: none;
 font-family: ${theme.source.fontFamily};

@@ -1,12 +1,17 @@
 import * as Style from "./style";
 import { Path } from "../../types/routes";
 import { useNavigate } from "react-router-dom";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { Api } from "../../data/api/api";
 import { FormInput } from "./types/types";
 
 export function Form() {
+  const [data, setData] = useState<boolean>(false);
     const navigate = useNavigate();
+
+    function statusData() {
+      setData(!data)
+    }
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -24,8 +29,20 @@ export function Form() {
     }
 
   return (
+    <>
+    {data ? (<>
+      <Style.Form>
+        <Style.FormCard>
+          <Style.InputCard type="text" placeholder="titulo do filme" name="title"/>
+          <Style.InputCard type="text" placeholder="descrição do filme" name="description"/>
+          <Style.InputCard type="number" placeholder="avaliação do filme" name="avaliation"/>
+          <Style.InputCard type="image" placeholder="URL com a foto do filme" name="image"/>
+        </Style.FormCard>
+      </Style.Form>
+    
+    </>):(
     <Style.Form>
-      <Style.FormData>
+      <Style.FormData onSubmit={handleSubmit}>
         <h2>Perfil</h2>
         <Style.inputProfile
           type="text"
@@ -56,5 +73,7 @@ export function Form() {
         </Style.divbuttonformProfile>
       </Style.FormData>
     </Style.Form>
+    )}
+    </>
   );
 }

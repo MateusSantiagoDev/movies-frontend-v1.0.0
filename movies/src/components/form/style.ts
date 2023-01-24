@@ -11,7 +11,26 @@ align-items: center;
 `}
 `;
 
-export const FormData = Styled.div`
+export const FormCard = Styled.form`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg2};
+height: 60vh;
+width: 40%;
+padding-top: 5rem;
+`}
+`;
+
+export const InputCard = Styled.input`
+${({theme}) => css`
+margin-top: 1rem;
+border-radius: .1rem;
+border: none;
+cursor: pointer;
+padding: .3rem;
+`}
+`
+
+export const FormData = Styled.form`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg2};
 height: 60vh;

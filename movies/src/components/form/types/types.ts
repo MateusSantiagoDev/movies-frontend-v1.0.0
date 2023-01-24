@@ -3,3 +3,10 @@ export type FormInput = {
   serie: string;
   anime: string;
 };
+
+export type FormDataProfile = {
+  title: string;
+  description: string;
+  avaliation: number;
+  image: string;
+};
