@@ -1,22 +1,60 @@
 import { LoginRequest } from "../types/types";
+import axios from "axios";
 
-/* const baseUrl = "https://movies-backend-production.up.railway.app"; */
-const baseUrl = "http://localhost:3001"
+axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.headers.post["content-type"] = "application/json";
+
+axios.interceptors.request.use(
+  function (config) {
+    const token = localStorage.getItem("token");
+    if(token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+
+  function (error) {
+    return Promise.reject(error);
+  }
+);
+
+axios.interceptors.response.use(
+  function (config) {
+    return config;
+  },
+  function (error) {
+    if(error.response.statusCode === 401) {
+      if(localStorage.getItem("token")) localStorage.removeItem("token");
+    }
+}
+);
 
 export const Api = {
   login: async ({email, password}: LoginRequest) => {
-    const response = await fetch(baseUrl + "/auth", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
-      body: JSON.stringify({email, password}),
-    });
-    const autorization = await response.json();
-    return autorization;
+    try {
+      const response = await axios.post("/auth", {email, password});
+      localStorage.setItem("token", response.data.token);
+      return response.data;
+    } catch (err) {
+      alert(err)
+    }
   },
 
-  getMovie: async () => {
-    const response = await fetch(baseUrl + "/movie");
-      const card = response.json();
-      return card;      
+  getPorfile: async () => {
+   try {
+    const response = await axios.post("/profiles");
+    return response.data;
+   } catch (err) {
+    alert(err)
+   }   
+  },
+
+  getMovies: async () => {
+    try {
+      const response = await axios.get("/movies");
+      return response.data;
+    } catch (err) {
+
+    }
   }
 }

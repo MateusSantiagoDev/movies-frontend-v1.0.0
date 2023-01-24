@@ -11,7 +11,9 @@ export function Home() {
         <Style.MenuItem onClick={() => {
          navigate(Path.FORM)
         }}>crar perfil</Style.MenuItem>
-        <Style.MenuItem>acessar perfil</Style.MenuItem>
+        <Style.MenuItem onClick={() => {
+          navigate(Path.PROFILE)
+        }}>acessar perfil</Style.MenuItem>
       </Style.Menu>
     </Style.Home>
   );

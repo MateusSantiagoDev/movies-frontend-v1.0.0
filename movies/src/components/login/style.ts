@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
 
+
+export type StyledForm = {
+    error: boolean;
+};
+
 export const Body = styled.div`
 ${({ theme }) => css`
 display:flex;
@@ -24,16 +29,15 @@ background-color: ${theme.colors.baseBg2};
 `}
 `;
 
-export const Form = styled.form`
-${({ theme }) => css`
+export const Form = styled.form<StyledForm>`
 text-align: center;
 padding-top: 3rem;
-background-color: ${theme.colors.baseBg3};
 height: 80%;
 width: 80%;
-border: solid 2px ${theme.colors.primaryColor};
+border: ${(props) => props.error ? '2px solid red' : '2px solid'};
 border-radius: .5rem;
-`}
+background-color: ${(props) => props.theme.colors.baseBg1};
+
 `
 export const Register = styled.div`
 ${() => css`
