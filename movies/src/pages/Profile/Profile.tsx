@@ -1,53 +1,96 @@
 import * as Style from "./Style";
 import { Select } from "../../components/options/select";
 import { useState, useEffect } from "react";
-import { Movies } from "../../types/elements/elements";
+import { Animes, Movies, Series } from "./types/types";
 import { Api } from "../../data/api/api";
 
 export function Profile() {
-  const [select, setSelect] = useState<string>("");
-  const [movie, setMovie] = useState<Movies[]>([])
-  const options = ["Movies", "series", "animes"];
- 
+  const [selectValue, setSelectValue] = useState<string>("");
+  const [movie, setMovie] = useState<Movies[]>([]);
+  const [serie, setSerie] = useState<Series[]>([]);
+  const [anime, setAnime] = useState<Animes[]>([]);
+
+  const options = ["Movies", "Series", "Animes", "Profile"];
+  const profileOption = "";
+
   async function getProfileMovies() {
     const data = await Api.getMovies();
     setMovie(data);
   }
 
+  async function getProfileSeries() {
+    const data = await Api.getSeries();
+    setSerie(data);
+  }
+
+  async function getProfileNamine() {
+    const data = await Api.getAnimes();
+    setAnime(data);
+  }
+
   useEffect(() => {
     getProfileMovies();
-  }, [])
+    getProfileSeries();
+    getProfileNamine();
+  }, []);
 
- 
   return (
-    <div>
-      <Select options={options} selectOptions={setSelect} />
-      {select === "Movies" && (
-        <>
-          {movie.map((el) => {
-            return <div key={el}>{el.title}</div>;
-          })}
-        </>
-      )}
-      ;
-      <Select options={options} selectOptions={setSelect} />
-      {Select === "Series" && (
-        <>
-          {series.map((el) => {
-            return <div key={el}>{el}</div>;
-          })}
-        </>
-      )}
-      ;
-      <Select options={options} selectOptions={setSelect} />
-      {select === "Animes" && (
-        <>
-          {Animes.map((el) => {
-            return <div key={el}>{el}</div>;
-          })}
-        </>
-      )}
-      ;
-    </div>
+    <Style.profileDiv>
+      <Style.profileHeader>
+        <h1>Perfil do Usuário</h1>
+      </Style.profileHeader>
+      <Style.profileBody>
+        <Select options={options} selectOptions={setSelectValue} />
+        {selectValue === "Movies" && (
+          <>
+            {movie.map((el) => {
+              return (
+                <Style.profileElement key={el.id}>
+                  <Style.profileCard>
+                  <h3>{el.title}</h3>
+                  <Style.profileImg src={el.image} alt="img" />
+                  <p>{el.description}</p>
+                  <p>{el.avaliation}</p>
+                  </Style.profileCard>
+                </Style.profileElement>
+              );
+            })}
+          </>
+        )}
+        {selectValue === "Series" && (
+          <>
+            {serie.map((el) => {
+             return (
+              <Style.profileElement key={el.id}>
+                <Style.profileCard>
+                <h3>{el.title}</h3>
+                <Style.profileImg src={el.image} alt="img" />
+                <p>{el.description}</p>
+                <p>{el.avaliation}</p>
+                </Style.profileCard>
+              </Style.profileElement>
+            );
+            })}
+          </>
+        )}
+        {selectValue === "Animes" && (
+          <>
+            {anime.map((el) => {
+              return (
+                <Style.profileElement key={el.id}>
+                  <Style.profileCard>
+                  <h3>{el.title}</h3>
+                  <Style.profileImg src={el.image} alt="img" />
+                  <p>{el.description}</p>
+                  <p>{el.avaliation}</p>
+                  </Style.profileCard>
+                </Style.profileElement>
+              );
+            })}
+          </>
+        )}
+        {selectValue === "Profile" && <>{profileOption}</>}
+      </Style.profileBody>
+    </Style.profileDiv>
   );
 }

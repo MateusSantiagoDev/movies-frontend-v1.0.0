@@ -3,3 +3,8 @@ export type LoginRequest = {
     password: string;
 };
 
+export type profileRequest = {
+    movie: string;
+    serie: string;
+    anime: string;
+}

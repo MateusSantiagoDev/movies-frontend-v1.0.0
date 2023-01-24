@@ -1,4 +1,5 @@
 export type selectProps = {
     options: string[];
-    selectOptions: (value: string) => void
+    selectOptions: React.Dispatch<React.SetStateAction<string>>
+    /* selectOptions: (value: string) => void */
 }
