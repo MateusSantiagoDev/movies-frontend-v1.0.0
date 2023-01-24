@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 
 export const profileDiv = styled.div`
 ${({theme}) => css`
-background-color: ${theme.colors.baseBg1};
+background-color: ${theme.colors.baseBg3};
 height: 100vh;
 width: 100%;
 `}
@@ -19,10 +19,17 @@ justify-content: center;
 `}
 `;
 
+export const profilebuttonSair = styled.button`
+${({theme})=> css`
+margin-left: 1rem;
+`}
+`
+
 export const profileBody = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg3};
-padding: 2rem 1rem;
+padding: 1rem;
+
 `}
 `;
 
@@ -30,7 +37,7 @@ export const profileElement = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg1};
 height: auto;
-min-height: 70vh;
+min-height: 75vh;
 width: 100%;
 display: flex;
 flex-wrap: wrap;
