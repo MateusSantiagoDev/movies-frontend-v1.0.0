@@ -23,8 +23,15 @@ width: 80%;
 export const movieCard = Styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg3};
-height: 10vh;
-width: 10%;
+height: 30vh;
+width: 30%;
 margin: 0 auto;
+text-align: center;
+border-radius: .2rem;
 `}
+`;
+
+export const movieImg = Styled.img`
+height: 70%;
+width: 100%;
 `

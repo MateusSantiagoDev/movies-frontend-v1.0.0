@@ -15,8 +15,9 @@ export const FormCard = Styled.form`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg2};
 height: 60vh;
-width: 40%;
+width: 30%;
 padding-top: 5rem;
+text-align: center;
 `}
 `;
 

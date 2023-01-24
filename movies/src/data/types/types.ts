@@ -8,3 +8,10 @@ export type profileRequest = {
     serie: string;
     anime: string;
 }
+
+export type formRequest = {
+    title: string;
+    description: string;
+    avaliation: number;
+    image: string;
+}

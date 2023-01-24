@@ -20,8 +20,8 @@ export function Movie() {
         <Style.movieBody>
             {movie.map((el, index) => (
                 <Style.movieCard key={index}>
-                    <h2>{el.title}</h2>
-                    <img src={el.image} alt="img" />
+                    <h4>{el.title}</h4>
+                    <Style.movieImg src={el.image} alt="img" />
                     <p>{el.description}</p>
                     <p>{el.avaliation}</p>                    
                 </Style.movieCard>

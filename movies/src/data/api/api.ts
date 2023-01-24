@@ -1,4 +1,4 @@
-import { LoginRequest, profileRequest } from "../types/types";
+import { formRequest, LoginRequest, profileRequest } from "../types/types";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -53,23 +53,74 @@ export const Api = {
     }
   },
 
-  getMovies: async () => {
+  getMovie: async () => {
     try {
       const response = await axios.get("/movie");
       return response.data;
     } catch (err) {}
   },
 
-  getSeries: async () => {
+  getSerie: async () => {
     try {
       const response = await axios.get("/serie");
       return response.data;
     } catch (err) {}
   },
 
-  getAnimes: async () => {
+  getAnime: async () => {
     try {
       const response = await axios.get("/anime");
+      return response.data;
+    } catch (err) {}
+  },
+
+  createMovie: async ({
+    title,
+    description,
+    avaliation,
+    image,
+  }: formRequest) => {
+    try {
+      const response = await axios.post("/movie", {
+        title,
+        description,
+        avaliation,
+        image,
+      });
+      return response.data;
+    } catch (err) {}
+  },
+
+  createSerie: async ({
+    title,
+    description,
+    avaliation,
+    image,
+  }: formRequest) => {
+    try {
+      const response = await axios.post("/serie", {
+        title,
+        description,
+        avaliation,
+        image,
+      });
+      return response.data;
+    } catch (err) {}
+  },
+
+  createAnime: async ({
+    title,
+    description,
+    avaliation,
+    image,
+  }: formRequest) => {
+    try {
+      const response = await axios.post("/anime", {
+        title,
+        description,
+        avaliation,
+        image,
+      });
       return response.data;
     } catch (err) {}
   },
