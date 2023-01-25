@@ -19,7 +19,7 @@ export function FormSerie() {
         }
 
         const response = await Api.createSerie(data);
-        if (response.status === 200) {
+        if (response) {
           navigate(Path.SERIES);
         }
 
@@ -43,9 +43,7 @@ export function FormSerie() {
               placeholder="URL da imagem da série"
               name="image"/>
               <Style.divbuttonformProfile>
-            <Style.buttonformProfile type='submit' onClick={() => {
-               navigate(Path.SERIES)
-            }}>
+            <Style.buttonformProfile type='submit'>
                 Salvar
             </Style.buttonformProfile>
             <Style.buttonformProfile type='submit' onClick={() => {

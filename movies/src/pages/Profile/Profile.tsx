@@ -13,7 +13,7 @@ export function Profile() {
   const [anime, setAnime] = useState<Animes[]>([]);
   const navigate = useNavigate();
 
-  const options = ["Movies", "Series", "Animes", "Profile"];
+  const options = ["Movies", "Series", "Animes"];
   const profileOption = "";
 
   async function getProfileMovies() {
@@ -44,10 +44,10 @@ export function Profile() {
       </Style.profileHeader>
       <Style.profilebuttonSair
           onClick={() => {
-            navigate(Path.LOGIN);
+            navigate(Path.HOME);
           }}
         >
-          Sair
+          Voltar
         </Style.profilebuttonSair>
       <Style.profileBody>       
         <Select options={options} selectOptions={setSelectValue} />
@@ -99,7 +99,6 @@ export function Profile() {
             })}
           </>
         )}
-        {selectValue === "Profile" && <>{profileOption}</>}
       </Style.profileBody>
     </Style.profileDiv>
   );

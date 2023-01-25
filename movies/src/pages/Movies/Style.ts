@@ -3,7 +3,8 @@ import Styled, {css} from 'styled-components';
 export const MovieDiv = Styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg1};
-height: 100vh;
+height: auto;
+min-height: 100vh;
 width: 100%;
 padding:2rem;
 `}
@@ -15,7 +16,8 @@ background-color: ${theme.colors.baseBg2};
 display: flex;
 flex-wrap: wrap;
 margin: 0 auto;
-height: 80vh;
+height: auto;
+min-height: 80vh;
 width: 80%;
 `}
 `

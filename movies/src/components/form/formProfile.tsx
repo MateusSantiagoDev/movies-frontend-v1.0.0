@@ -51,7 +51,7 @@ export function Form() {
               <Style.buttonformProfile
                 type="submit"
                 onClick={() => {
-                  navigate(Path.LOGIN);
+                  navigate(Path.HOME);
                 }}
               >
                 voltar

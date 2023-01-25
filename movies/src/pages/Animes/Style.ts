@@ -3,7 +3,8 @@ import styled, { css } from "styled-components";
 export const AnimeDiv = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg1};
-height: 100vh;
+height: auto;
+min-height: 100vh;
 width: 100%;
 padding-top: 1.5rem;
 `}
@@ -13,7 +14,8 @@ export const animeBody = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg3};
 margin: 0 auto;
-height: 80vh;
+height: auto;
+min-height: 80vh;
 width: 80%;
 display: flex;
 flex-wrap: wrap;
