@@ -30,6 +30,10 @@ export const carouselHomeMovie = styled.div`
 
 export const whapperHomeMovie = styled.div`
   width: 100%;
+  font-size: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const chevronRightMovie = styled.img`
@@ -67,6 +71,13 @@ export const chevronLeghtMovie = styled.img`
   left: -5px;
 `}
 `;
+
+export const carousel = styled.div`
+ font-size: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+`
 
 export const chevronRightSerie = styled.img`
   ${({ theme }) => css`

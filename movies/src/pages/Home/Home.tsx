@@ -13,6 +13,9 @@ export function Home() {
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
              <Style.chevronLeghtMovie src={chevron} alt="chevron"/>
+             <Style.carousel>
+            
+            </Style.carousel>
              <Style.chevronRightMovie src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>
         </Style.carouselHomeMovie>
@@ -20,6 +23,9 @@ export function Home() {
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
           <Style.chevronLeghtSerie src={chevron} alt="chevron"/>
+          <Style.carousel>
+            
+            </Style.carousel>
           <Style.chevronRightSerie src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>          
         </Style.carouselHomeMovie>
@@ -27,6 +33,9 @@ export function Home() {
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
           <Style.chevronLeghtAnime src={chevron} alt="chevron"/>
+          <Style.carousel>
+
+          </Style.carousel>
           <Style.chevronRightAnime src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>          
         </Style.carouselHomeMovie>
