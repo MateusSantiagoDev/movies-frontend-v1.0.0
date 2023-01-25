@@ -5,8 +5,7 @@ ${({theme}) => css`
 background-color: ${theme.colors.baseBg1};
 height: 100vh;
 width: 100%;
-display: flex;
-align-items: center;
+padding:2rem;
 `}
 `;
 
@@ -34,4 +33,20 @@ border-radius: .2rem;
 export const movieImg = Styled.img`
 height: 70%;
 width: 100%;
+`;
+
+export const movieDivButton = Styled.div`
+${({theme}) => css`
+height: 5vh;
+width: 10%;
+background-color: ${theme.colors.baseBg1};
+`}
+`;
+
+export const movieButton = Styled.button`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg3};
+height: 100%;
+width: 100%;
+`}
 `

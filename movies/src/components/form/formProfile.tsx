@@ -17,7 +17,7 @@ export function Form() {
     };
 
     const response = await Api.createPorfile(data);
-    if (response.status === 200) {
+    if (response) {
       navigate(Path.HOME);
     }
   }
@@ -44,10 +44,7 @@ export function Form() {
             />
             <Style.divbuttonformProfile>
               <Style.buttonformProfile
-                type="submit"
-                onClick={() => {
-                  navigate(Path.HOME);
-                }}
+                type="submit"               
               >
                 Salvar
               </Style.buttonformProfile>

@@ -17,17 +17,17 @@ export function Profile() {
   const profileOption = "";
 
   async function getProfileMovies() {
-    const data = await Api.getMovies();
+    const data = await Api.getMovie();
     setMovie(data);
   }
 
   async function getProfileSeries() {
-    const data = await Api.getSeries();
+    const data = await Api.getSerie();
     setSerie(data);
   }
 
   async function getProfileNamine() {
-    const data = await Api.getAnimes();
+    const data = await Api.getAnime();
     setAnime(data);
   }
 

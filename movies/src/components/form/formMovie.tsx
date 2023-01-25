@@ -10,20 +10,21 @@ export function FormMovie() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    
     const data: FormDataProfile = {
-      title: e.currentTarget.title.value,
+      title: e.currentTarget.gameTitle.value, 
       description: e.currentTarget.description.value,
-      avaliation: e.currentTarget.avaliation.value,
+      avaliation: Number(e.currentTarget.avaliation.value),
       image: e.currentTarget.image.value,
     };
-
+    console.log("data", data);
     const response = await Api.createMovie(data);
-    console.log(response);
-    if (response.status === 200) {
-      navigate(Path.MOVIES);
-    }
-  }
+    console.log("response", response);
   
+      navigate(Path.MOVIES);
+    
+  }
+
   return (
     <Style.Form>
       <Style.FormCard onSubmit={handleSubmit}>
@@ -31,7 +32,7 @@ export function FormMovie() {
         <Style.InputCard
           type="text"
           placeholder="titulo do filme"
-          name="title"
+          name="gameTitle"
         />
         <Style.InputCard
           type="text"
@@ -50,10 +51,7 @@ export function FormMovie() {
         />
         <Style.divbuttonformProfile>
           <Style.buttonformProfile
-            type="submit"
-            onClick={() => {
-              navigate(Path.MOVIES);
-            }}
+            type="submit" 
           >
             Salvar
           </Style.buttonformProfile>

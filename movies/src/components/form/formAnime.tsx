@@ -6,20 +6,20 @@ import { Path } from '../../types/routes';
 import { Api } from '../../data/api/api';
 
 
-export function FormMovie() {
+export function FormAnime() {
     const navigate = useNavigate();
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const data: FormDataProfile = {
-            title: e.currentTarget.title.value,
+            title: e.currentTarget.gameTitle.value,
             description: e.currentTarget.description.value,
-            avaliation: e.currentTarget.avaliation.value,
+            avaliation: Number(e.currentTarget.avaliation.value),
             image: e.currentTarget.image.value,
         }
 
         const response = await Api.createAnime(data);
-        if (response.status === 200) {
+        if (response) {
           navigate(Path.ANIMES);
         }
 
@@ -31,7 +31,7 @@ export function FormMovie() {
                 <h3>Anime</h3>
                 <Style.InputCard type="text"
               placeholder="titulo do anime"
-              name="title"/>
+              name="gameTitle"/>
                 <Style.InputCard type="text"
               placeholder="descrição do anime"
               name="description"/>
@@ -42,9 +42,7 @@ export function FormMovie() {
               placeholder="URL da imagem do anime"
               name="image"/>
               <Style.divbuttonformProfile>
-            <Style.buttonformProfile type='submit' onClick={() => {
-               navigate(Path.ANIMES)
-            }}>
+            <Style.buttonformProfile type='submit'>
                 Salvar
             </Style.buttonformProfile>
             <Style.buttonformProfile type='submit' onClick={() => {

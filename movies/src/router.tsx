@@ -9,6 +9,8 @@ import { Serie } from "./pages/Series/Serie";
 import { Anime } from "./pages/Animes/Anime";
 import { Profile } from "./pages/Profile/Profile";
 import { FormMovie } from "./components/form/formMovie";
+import { FormSerie } from "./components/form/formSerie";
+import { FormAnime } from "./components/form/formAnime";
 
 export function Router() {
   return (
@@ -18,6 +20,8 @@ export function Router() {
       <Route path={Path.HOME} element={<Home />} />
       <Route path={Path.FORM} element={<Form/>} />
       <Route path={Path.FORM_MOVIE} element={<FormMovie/>} />
+      <Route path={Path.FORM_SERIE} element={<FormSerie/>} />
+      <Route path={Path.FORM_ANIME} element={<FormAnime/>} />
       <Route path={Path.PROFILE} element={<Profile/>}/>
       <Route path={Path.MOVIES} element={<Movie/>}/>
       <Route path={Path.SERIES} element={<Serie/>} />

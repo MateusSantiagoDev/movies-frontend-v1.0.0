@@ -80,15 +80,17 @@ export const Api = {
     avaliation,
     image,
   }: formRequest) => {
-    try {
+    try {      
       const response = await axios.post("/movie", {
+      
         title,
         description,
         avaliation,
         image,
       });
       return response.data;
-    } catch (err) {}
+    } catch (err) {console.log("api", err)}
+    
   },
 
   createSerie: async ({

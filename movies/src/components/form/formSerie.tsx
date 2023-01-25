@@ -6,15 +6,15 @@ import { Path } from '../../types/routes';
 import { Api } from '../../data/api/api';
 
 
-export function FormMovie() {
+export function FormSerie() {
     const navigate = useNavigate();
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const data: FormDataProfile = {
-            title: e.currentTarget.title.value,
+            title: e.currentTarget.gameTitle.value,
             description: e.currentTarget.description.value,
-            avaliation: e.currentTarget.avaliation.value,
+            avaliation: Number(e.currentTarget.avaliation.value),
             image: e.currentTarget.image.value,
         }
 
@@ -32,7 +32,7 @@ export function FormMovie() {
                 <h3>Series</h3>
                 <Style.InputCard type="text"
               placeholder="titulo da série"
-              name="title"/>
+              name="gameTitle"/>
                 <Style.InputCard type="text"
               placeholder="descrição da série"
               name="description"/>

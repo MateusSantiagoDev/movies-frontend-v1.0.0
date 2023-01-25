@@ -41,7 +41,7 @@ export function Home() {
         <Style.MenuItem
           onClick={() => {
            
-            navigate(Path.FORM);
+            navigate(Path.FORM_SERIE);
           }}
         >
           Adicionar uma nova série
@@ -56,7 +56,7 @@ export function Home() {
         <Style.MenuItem
           onClick={() => {
             
-            navigate(Path.FORM);
+            navigate(Path.FORM_ANIME);
           }}
         >
           Adicionar um novo Anime
