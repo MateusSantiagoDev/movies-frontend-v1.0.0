@@ -1,12 +1,25 @@
 import * as Style from "./style";
 import { FormDataProfile } from "./types/types";
-import { useNavigate } from "react-router-dom";
-import { FormEvent } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { FormEvent, useState, useEffect } from "react";
 import { Path } from "../../types/routes";
 import { Api } from "../../data/api/api";
 
 export function FormMovie() {
   const navigate = useNavigate();
+  const [ card, setCard] = useState({});
+  const { id } = useParams();
+
+  async function getCardById() {
+      if(id) {
+        const response = await Api.getById(id);
+        setCard(response)
+      }
+  }
+
+  useEffect(() => {
+    getCardById();
+  }, [])
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,12 +29,23 @@ export function FormMovie() {
       description: e.currentTarget.description.value,
       avaliation: Number(e.currentTarget.avaliation.value),
       image: e.currentTarget.image.value,
-    };
-    console.log("data", data);
-    const response = await Api.createMovie(data);
-    console.log("response", response);
-  
-      navigate(Path.MOVIES);
+    };   
+
+    if(id) {
+      const updateCard = {...data, id: id};
+      const response = await Api.updateMovie(updateCard)
+      
+      if(response){
+        navigate(Path.MOVIES);
+      }
+    } else{
+      const response = await Api.createMovie(data); 
+      if(response){
+        navigate(Path.MOVIES);
+      }
+
+    }
+    
     
   }
 

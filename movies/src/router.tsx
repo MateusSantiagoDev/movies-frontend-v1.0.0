@@ -20,6 +20,7 @@ export function Router() {
       <Route path={Path.HOME} element={<Home />} />
       <Route path={Path.FORM} element={<Form/>} />
       <Route path={Path.FORM_MOVIE} element={<FormMovie/>} />
+      <Route path={Path.FORM_MOVIE_UPDATE} element={<FormMovie/>} />
       <Route path={Path.FORM_SERIE} element={<FormSerie/>} />
       <Route path={Path.FORM_ANIME} element={<FormAnime/>} />
       <Route path={Path.PROFILE} element={<Profile/>}/>

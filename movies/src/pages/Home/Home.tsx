@@ -1,13 +1,36 @@
 import * as Style from "./style";
 import { useNavigate } from "react-router-dom";
 import { Path } from "../../types/routes";
+import chevron from "../../assets/images/chevron.png";
 
 export function Home() {
   const navigate = useNavigate();
 
   return (
     <Style.Home>
-      <Style.PageHome></Style.PageHome>
+      <Style.PageHome>
+        <h3>Movies</h3>
+        <Style.carouselHomeMovie>
+          <Style.whapperHomeMovie>
+             <Style.chevronLeghtMovie src={chevron} alt="chevron"/>
+             <Style.chevronRightMovie src={chevron} alt="chevron"/>
+          </Style.whapperHomeMovie>
+        </Style.carouselHomeMovie>
+        <h3>Series</h3>
+        <Style.carouselHomeMovie>
+          <Style.whapperHomeMovie>
+          <Style.chevronLeghtSerie src={chevron} alt="chevron"/>
+          <Style.chevronRightSerie src={chevron} alt="chevron"/>
+          </Style.whapperHomeMovie>          
+        </Style.carouselHomeMovie>
+        <h3>Animes</h3>
+        <Style.carouselHomeMovie>
+          <Style.whapperHomeMovie>
+          <Style.chevronLeghtAnime src={chevron} alt="chevron"/>
+          <Style.chevronRightAnime src={chevron} alt="chevron"/>
+          </Style.whapperHomeMovie>          
+        </Style.carouselHomeMovie>
+      </Style.PageHome>
       <Style.Menu>
         <Style.MenuItem
           onClick={() => {

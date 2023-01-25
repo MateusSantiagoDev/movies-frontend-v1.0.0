@@ -5,6 +5,7 @@ export type FormInput = {
 };
 
 export type FormDataProfile = {
+  id?: string;
   title: string;
   description: string;
   avaliation: number;

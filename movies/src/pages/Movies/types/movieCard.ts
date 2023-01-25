@@ -1,6 +1,9 @@
 export type Card = {
-title: string;
-description: string;
-avaliation: number;
-image: string;
-}
+  id: string;
+  title: string;
+  description: string;
+  avaliation: number;
+  image: string;
+};
+
+

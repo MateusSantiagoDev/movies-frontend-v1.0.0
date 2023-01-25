@@ -6,7 +6,7 @@ background-color: ${theme.colors.baseBg1};
 height: auto;
 min-height: 100vh;
 width: 100%;
-padding:2rem;
+padding: 2rem;
 `}
 `;
 
@@ -19,16 +19,19 @@ margin: 0 auto;
 height: auto;
 min-height: 80vh;
 width: 80%;
+padding: .5rem;
 `}
-`
+`;
+
 export const movieCard = Styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg3};
-height: 30vh;
+height: 40vh;
 width: 30%;
-margin: 0 auto;
+margin: 1rem auto;
 text-align: center;
 border-radius: .2rem;
+padding: .5rem;
 `}
 `;
 
@@ -51,4 +54,59 @@ background-color: ${theme.colors.baseBg3};
 height: 100%;
 width: 100%;
 `}
-`
+`;
+
+export const MovieDivMenu = Styled.div`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg3};
+height: 20px;
+width: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 0 auto;
+`}
+`;
+
+export const MovieButtonMenu = Styled.button`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg2};
+height: 100%;
+width: 80%;
+cursor: pointer;
+`}
+`;
+
+export const movieUpdateForm = Styled.form`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg2};
+height: 60vh;
+width: 40%;
+margin: 5rem auto 0;
+text-align: center;
+padding-top: 4rem;
+`}
+`;
+
+export const movieUpdateInput = Styled.input`
+margin-top: 1rem;
+height: 30px;
+width: 80%;
+border-radius: .3rem;
+`;
+
+export const movieUpdateDivButton = Styled.div`
+height: 3vh;
+width: 20%;
+margin: 2rem auto;
+`;
+
+export const movieUpdateButton = Styled.button`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg3};
+height: 100%;
+width: 100%;
+cursor: pointer;
+`}
+`;

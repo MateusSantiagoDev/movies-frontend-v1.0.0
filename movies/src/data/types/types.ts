@@ -9,7 +9,15 @@ export type profileRequest = {
     anime: string;
 }
 
-export type formRequest = {
+export type CardRequest = {
+    title: string;
+    description: string;
+    avaliation: number;
+    image: string;
+}
+
+export type CardDataRequest = {
+    id: string;
     title: string;
     description: string;
     avaliation: number;

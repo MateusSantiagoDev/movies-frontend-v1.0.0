@@ -1,4 +1,4 @@
-import { formRequest, LoginRequest, profileRequest } from "../types/types";
+import { CardDataRequest, CardRequest, LoginRequest, profileRequest } from "../types/types";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -79,18 +79,39 @@ export const Api = {
     description,
     avaliation,
     image,
-  }: formRequest) => {
-    try {      
+  }: CardRequest) => {
+    try {
       const response = await axios.post("/movie", {
-      
         title,
         description,
         avaliation,
         image,
       });
       return response.data;
-    } catch (err) {console.log("api", err)}
-    
+    } catch (err) {
+      console.log("api", err);
+    }
+  },
+
+  updateMovie: async (data: CardDataRequest) => {
+    try {
+      const response = await axios.patch("/movie", data);
+      return response.data;
+    } catch (err) {}
+  },
+
+  deleteMovie: async (id: string) => {
+    try {
+      const response = await axios.delete(`/movie/${id}`);
+      return response.data;
+    } catch (err) {}
+  },
+
+  getById: async (id: string) => {
+    try {
+      const response = await axios.get(`/movie/${id}`);
+      return response.data;
+    } catch (err) {}
   },
 
   createSerie: async ({
@@ -98,7 +119,7 @@ export const Api = {
     description,
     avaliation,
     image,
-  }: formRequest) => {
+  }: CardRequest) => {
     try {
       const response = await axios.post("/serie", {
         title,
@@ -115,7 +136,7 @@ export const Api = {
     description,
     avaliation,
     image,
-  }: formRequest) => {
+  }: CardRequest) => {
     try {
       const response = await axios.post("/anime", {
         title,

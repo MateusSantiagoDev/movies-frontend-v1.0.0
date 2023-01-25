@@ -4,6 +4,7 @@ export enum Path {
   REGISTRATION = "/registration",
   FORM = "/form",
   FORM_MOVIE = "/form_movie",
+  FORM_MOVIE_UPDATE = "/form_movie_update/:id",
   FORM_SERIE = "/form_serie",
   FORM_ANIME = "/form_anime",
   PROFILE = "/profile",

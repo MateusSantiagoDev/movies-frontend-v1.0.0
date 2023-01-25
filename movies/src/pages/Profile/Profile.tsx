@@ -14,7 +14,6 @@ export function Profile() {
   const navigate = useNavigate();
 
   const options = ["Movies", "Series", "Animes"];
-  const profileOption = "";
 
   async function getProfileMovies() {
     const data = await Api.getMovie();
