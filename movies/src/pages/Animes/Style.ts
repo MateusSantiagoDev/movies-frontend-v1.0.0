@@ -29,10 +29,12 @@ text-align: center;
 export const animeCard = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg2};
-height: 30vh;
+height: 40vh;
 width: 30%;
-margin: 0 auto;
-border-radius: .3rem;
+margin: 1rem auto;
+text-align: center;
+border-radius: .2rem;
+padding: .5rem;
 `}
 `;
 
@@ -58,3 +60,24 @@ width: 100%;
 cursor: pointer;
 `}
 `
+
+export const AnimeDivMenu = styled.div`
+${({theme}) => css`
+height: 20px;
+width: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 0 auto;
+`}
+`;
+
+export const AnimeButtonMenu = styled.button`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg2};
+height: 100%;
+width: 80%;
+cursor: pointer;
+`}
+`;

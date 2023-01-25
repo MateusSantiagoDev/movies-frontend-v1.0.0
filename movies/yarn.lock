@@ -650,6 +650,11 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
+immer@>=8.0.1:
+  version "9.0.18"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.18.tgz#d2faee58fd0e34f017f329b98cdab37826fa31b8"
+  integrity sha512-eAPNpsj7Ax1q6Y/3lm2PmlwRcFzpON7HSNQ3ru5WQH1/PSpnyed/HpNOELl2CxLKoj4r+bAHgdyKqW5gc2Se1A==
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -814,6 +819,13 @@ react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-model@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/react-model/-/react-model-4.2.1.tgz#e75c885a1bc9eed6c1551ad114b5f06dc9190038"
+  integrity sha512-vFHuIJW+AtSAHQSP9sWDf0B+NimBzvAiAhnJ+umZ/ipOk8hK0FQsRn0vglWeeZhdrfYF8Y0Xy6IDVG8WhhDUxg==
+  dependencies:
+    immer ">=8.0.1"
 
 react-query@^3.39.2:
   version "3.39.2"

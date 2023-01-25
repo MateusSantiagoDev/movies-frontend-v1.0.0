@@ -1,4 +1,9 @@
-import { CardDataRequest, CardRequest, LoginRequest, profileRequest } from "../types/types";
+import {
+  CardDataRequest,
+  CardRequest,
+  LoginRequest,
+  profileRequest,
+} from "../types/types";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -131,6 +136,13 @@ export const Api = {
     } catch (err) {}
   },
 
+  deleteSerie: async (id: string) => {
+    try {
+      const response = await axios.delete(`/serie/${id}`);
+      return response.data;
+    } catch (err) {}
+  },
+
   createAnime: async ({
     title,
     description,
@@ -144,6 +156,13 @@ export const Api = {
         avaliation,
         image,
       });
+      return response.data;
+    } catch (err) {}
+  },
+
+  deleteAnime: async (id: string) => {
+    try {
+      const response = await axios.delete(`/anime/${id}`);
       return response.data;
     } catch (err) {}
   },

@@ -1,10 +1,39 @@
 import * as Style from "./style";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Path } from "../../types/routes";
 import chevron from "../../assets/images/chevron.png";
 
+
 export function Home() {
   const navigate = useNavigate();
+  const [stateMovie, setStateMovie] = useState([])
+  const [stateAnime, setStateAnime] = useState([])
+  const [stateSerie, setStateSerie] = useState([])
+
+
+   useEffect(() => {
+    fetch("http://localhost:5173/static/movies.json").then((response)=> response.json()).then(setStateMovie)
+
+    fetch("http://localhost:5173/static/series.json").then((response)=> response.json()).then(setStateSerie)
+
+    fetch("http://localhost:5173/static/animes.json").then((response)=> response.json()).then(setStateAnime)
+
+  }, []) 
+
+   if (!stateMovie || !stateMovie.length) {
+    return null;
+  }
+
+  if (!stateSerie || !stateSerie.length) {
+    return null;
+  }
+
+  if (!stateAnime || !stateAnime.length) {
+    return null;
+  } 
+
+ 
 
   return (
     <Style.Home>
@@ -14,7 +43,9 @@ export function Home() {
           <Style.whapperHomeMovie>
              <Style.chevronLeghtMovie src={chevron} alt="chevron"/>
              <Style.carousel>
-            
+              {stateMovie.map((el) => (
+            <Style.carouselItem src={el} alt="img"/>
+            ))}
             </Style.carousel>
              <Style.chevronRightMovie src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>
@@ -24,7 +55,9 @@ export function Home() {
           <Style.whapperHomeMovie>
           <Style.chevronLeghtSerie src={chevron} alt="chevron"/>
           <Style.carousel>
-            
+          {stateSerie.map((el) => (
+          <Style.carouselItem src={el} alt="img"/>
+          ))}
             </Style.carousel>
           <Style.chevronRightSerie src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>          
@@ -34,7 +67,9 @@ export function Home() {
           <Style.whapperHomeMovie>
           <Style.chevronLeghtAnime src={chevron} alt="chevron"/>
           <Style.carousel>
-
+          {stateAnime.map((el) => (
+          <Style.carouselItem src={el} alt="img"/>
+          ))}
           </Style.carousel>
           <Style.chevronRightAnime src={chevron} alt="chevron"/>
           </Style.whapperHomeMovie>          

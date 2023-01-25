@@ -79,6 +79,13 @@ export const carousel = styled.div`
   overflow: hidden;
 `
 
+export const carouselItem = styled.img`
+ height: 340px;
+  object-fit: cover;
+  width: calc(100%);
+  margin-left: 0px;
+`
+
 export const chevronRightSerie = styled.img`
   ${({ theme }) => css`
   top: 40%;

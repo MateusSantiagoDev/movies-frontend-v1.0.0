@@ -7,6 +7,7 @@ import { Path } from "../../types/routes";
 
 export function Anime() {
   const [anime, setAnime] = useState<Card[]>([]);
+  const [control, setControl] = useState(false)
   const navigate = useNavigate();
 
   async function getAllAnime() {
@@ -14,9 +15,20 @@ export function Anime() {
     setAnime(response);
   }
 
+  async function deleteCardAnime(id: string) {
+    const response = await Api.deleteAnime(id);
+    if(response){
+      render()
+    }
+  }
+
+  function render(){
+    setControl(!control)
+  }
+
   useEffect(() => {
     getAllAnime();
-  }, []);
+  }, [control]);
 
   return (
     <Style.AnimeDiv>
@@ -34,6 +46,22 @@ export function Anime() {
             <Style.animeImg src={el.image} alt="img" />
             <p>{el.description}</p>
             <p>{el.avaliation}</p>
+            <Style.AnimeDivMenu>
+                  <Style.AnimeButtonMenu
+                    onClick={() => {                      
+                      
+                    }}
+                  >
+                    Atualizar
+                  </Style.AnimeButtonMenu>
+                  <Style.AnimeButtonMenu
+                    onClick={() => {
+                      deleteCardAnime(el.id);
+                    }}
+                  >
+                    Remover
+                  </Style.AnimeButtonMenu>
+                </Style.AnimeDivMenu>
           </Style.animeCard>
         ))}
       </Style.animeBody>

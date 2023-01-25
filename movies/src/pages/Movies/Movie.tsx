@@ -1,18 +1,27 @@
 import * as Style from "./Style";
 import { useState, useEffect } from "react";
+
 import { Card } from "./types/movieCard";
 import { Api } from "../../data/api/api";
 import { useNavigate } from "react-router-dom";
 import { Path } from "../../types/routes";
 
+
+
 export function Movie() {
   const [movie, setMovie] = useState<Card[]>([]);
+  const [updateMovie, setUpdateMovie] = useState<Card[]>([]);
   const [control, setControl] = useState(false);
   const navigate = useNavigate();
 
   async function getMovies() {
     const response = await Api.getMovie();
     setMovie(response);
+  }
+
+  async function updateCardMovie(card: Card) {
+    const response = await Api.updateMovie(card);
+    setUpdateMovie(response);
   }
 
   async function deleteCardMovie(id: string) {
@@ -50,8 +59,8 @@ export function Movie() {
                 <p>{el.avaliation}</p>
                 <Style.MovieDivMenu>
                   <Style.MovieButtonMenu
-                    onClick={() => {
-                        navigate(Path.FORM_MOVIE_UPDATE + el.id)
+                    onClick={() => {                      
+                      
                     }}
                   >
                     Atualizar
@@ -66,7 +75,7 @@ export function Movie() {
                 </Style.MovieDivMenu>
               </Style.movieCard>
             ))}
-          </Style.movieBody>          
+          </Style.movieBody>                   
     </Style.MovieDiv>
   );
 }

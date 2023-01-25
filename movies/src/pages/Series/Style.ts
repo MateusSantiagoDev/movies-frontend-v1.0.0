@@ -6,7 +6,6 @@ background-color: ${theme.colors.baseBg1};
 height: auto;
 min-height: 100vh;
 width: 100%;
-padding-top: 5%;
 `}
 `;
 
@@ -48,11 +47,12 @@ gap: 10px;
 export const SerieBody = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg2};
-height: 30vh;
-width: 20%;
-border-radius: .3rem;
+height: 40vh;
+width: 30%;
+margin: 1rem auto;
 text-align: center;
-margin-top: 1rem;
+border-radius: .2rem;
+padding: .5rem;
 `}
 `;
 
@@ -62,5 +62,24 @@ height: 70%;
 width: 100%;
 `}
 `;
+
+export const SerieDivMenu = styled.div`
+${({theme}) => css`
+height: 20px;
+width: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+margin: 0 auto;
 `}
-`
+`;
+
+export const SerieButtonMenu = styled.button`
+${({theme}) => css`
+background-color: ${theme.colors.baseBg2};
+height: 100%;
+width: 80%;
+cursor: pointer;
+`}
+`;
