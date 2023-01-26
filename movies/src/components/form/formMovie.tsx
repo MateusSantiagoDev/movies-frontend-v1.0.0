@@ -4,22 +4,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FormEvent, useState, useEffect } from "react";
 import { Path } from "../../types/routes";
 import { Api } from "../../data/api/api";
+import { Card } from "../../pages/Movies/types/movieCard";
 
 export function FormMovie() {
+  const [card, setCard] = useState<Card[]>([])
   const navigate = useNavigate();
-  const [ card, setCard] = useState({});
   const { id } = useParams();
 
-  async function getCardById() {
+  
+    async function getCardById() {
       if(id) {
-        const response = await Api.getById(id);
-        setCard(response)
-      }
+      const response = await Api.getMovieById(id)
+      setCard(response)
+    }
   }
 
   useEffect(() => {
     getCardById();
-  }, [])
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,22 +31,22 @@ export function FormMovie() {
       description: e.currentTarget.description.value,
       avaliation: Number(e.currentTarget.avaliation.value),
       image: e.currentTarget.image.value,
-    };   
-
-    if(id) {
-      const updateCard = {...data, id: id};
-      const response = await Api.updateMovie(updateCard)
+    };      
+     
       
+     if(id){
+      const response = await Api.updateMovie(id, data)      
       if(response){
         navigate(Path.MOVIES);
       }
-    } else{
-      const response = await Api.createMovie(data); 
-      if(response){
-        navigate(Path.MOVIES);
-      }
+     }else{
+       const response = await Api.createMovie(data); 
+       if(response){
+         navigate(Path.MOVIES);
+       }
+     }
 
-    }
+    
     
     
   }
@@ -82,7 +84,7 @@ export function FormMovie() {
           <Style.buttonformProfile
             type="submit"
             onClick={() => {
-              navigate(Path.LOGIN);
+              navigate(Path.HOME);
             }}
           >
             Voltar
@@ -92,3 +94,4 @@ export function FormMovie() {
     </Style.Form>
   );
 }
+

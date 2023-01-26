@@ -11,6 +11,7 @@ import { Profile } from "./pages/Profile/Profile";
 import { FormMovie } from "./components/form/formMovie";
 import { FormSerie } from "./components/form/formSerie";
 import { FormAnime } from "./components/form/formAnime";
+/* import { FormMovieUpdate } from "./components/form/FormMovieUpdate"; */
 
 export function Router() {
   return (

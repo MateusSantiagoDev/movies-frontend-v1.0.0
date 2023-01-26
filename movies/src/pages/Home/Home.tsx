@@ -1,23 +1,27 @@
 import * as Style from "./style";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Path } from "../../types/routes";
 import chevron from "../../assets/images/chevron.png";
 
 
 export function Home() {
   const navigate = useNavigate();
-  const [stateMovie, setStateMovie] = useState([])
-  const [stateAnime, setStateAnime] = useState([])
-  const [stateSerie, setStateSerie] = useState([])
+  const movieRef = useRef("null")
+  const serieRef = useRef("null")
+  const animeRef = useRef("null")
+  
+  const [stateMovie, setStateMovie] = useState<string[]>([])
+  const [stateAnime, setStateAnime] = useState<string[]>([])
+  const [stateSerie, setStateSerie] = useState<string[]>([])
 
 
    useEffect(() => {
-    fetch("http://localhost:5173/static/movies.json").then((response)=> response.json()).then(setStateMovie)
+    fetch("http://localhost:5173/static/movies.json").then((res)=> res.json()).then(setStateMovie)
 
-    fetch("http://localhost:5173/static/series.json").then((response)=> response.json()).then(setStateSerie)
+    fetch("http://localhost:5173/static/series.json").then((res)=> res.json()).then(setStateSerie)
 
-    fetch("http://localhost:5173/static/animes.json").then((response)=> response.json()).then(setStateAnime)
+    fetch("http://localhost:5173/static/animes.json").then((res)=> res.json()).then(setStateAnime)
 
   }, []) 
 
@@ -33,6 +37,16 @@ export function Home() {
     return null;
   } 
 
+ /*  const handleLeftClick = (e) => {
+    e.preventDefault();
+    movieRef.current.scrollLeft -= movieRef.current.offsetWidth;
+  };
+
+  const handleRightClick = (e) => {
+    e.preventDefault();
+    movieRef.current.scrollLeft += movieRef.current.offsetWidth;
+  }; */
+
  
 
   return (
@@ -41,20 +55,20 @@ export function Home() {
         <h3>Movies</h3>
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
-             <Style.chevronLeghtMovie src={chevron} alt="chevron"/>
-             <Style.carousel>
+             <Style.chevronLeghtMovie src={chevron} alt="chevron" />
+             <Style.carousel >
               {stateMovie.map((el) => (
             <Style.carouselItem src={el} alt="img"/>
             ))}
             </Style.carousel>
-             <Style.chevronRightMovie src={chevron} alt="chevron"/>
+             <Style.chevronRightMovie src={chevron} alt="chevron" />
           </Style.whapperHomeMovie>
         </Style.carouselHomeMovie>
         <h3>Series</h3>
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
           <Style.chevronLeghtSerie src={chevron} alt="chevron"/>
-          <Style.carousel>
+          <Style.carousel >
           {stateSerie.map((el) => (
           <Style.carouselItem src={el} alt="img"/>
           ))}
@@ -66,7 +80,7 @@ export function Home() {
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
           <Style.chevronLeghtAnime src={chevron} alt="chevron"/>
-          <Style.carousel>
+          <Style.carousel >
           {stateAnime.map((el) => (
           <Style.carouselItem src={el} alt="img"/>
           ))}
@@ -76,65 +90,48 @@ export function Home() {
         </Style.carouselHomeMovie>
       </Style.PageHome>
       <Style.Menu>
-        <Style.MenuItem
-          onClick={() => {
-           
-            navigate(Path.FORM);
-          }}
-        >
-          crar perfil
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+        <Style.MenuHomeDiv onClick={() => {           
+           navigate(Path.FORM);
+         }}>       
+          crar perfil        
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv onClick={() => {
             navigate(Path.PROFILE);
-          }}
-        >
-          acessar perfil
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {                      
+          }}>       
+          acessar perfil        
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv onClick={() => {                      
             navigate(Path.FORM_MOVIE);
-          }}
-        >
-          Adicionar um novo filme
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+          }}>       
+          Adicionar um novo filme        
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv  onClick={() => {
             navigate(Path.MOVIES);
-          }}
-        >
-          Visualizar todos os filmes
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+          }}>       
+          Visualizar todos os filmes      
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv onClick={() => {
            
-            navigate(Path.FORM_SERIE);
-          }}
-        >
-          Adicionar uma nova série
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+           navigate(Path.FORM_SERIE);
+         }}>         
+        Adicionar uma nova série        
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv onClick={() => {
             navigate(Path.SERIES);
-          }}
-        >
-          Vizualizar todas as Séries
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+          }}>       
+          Vizualizar todas as Séries        
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv  onClick={() => {
             
             navigate(Path.FORM_ANIME);
-          }}
-        >
-          Adicionar um novo Anime
-        </Style.MenuItem>
-        <Style.MenuItem
-          onClick={() => {
+          }}>       
+          Adicionar um novo Anime       
+        </Style.MenuHomeDiv>
+        <Style.MenuHomeDiv onClick={() => {
             navigate(Path.ANIMES);
-          }}
-        >
-          Visualizar todos os Animes
-        </Style.MenuItem>
+          }}>        
+          Visualizar todos os Animes        
+        </Style.MenuHomeDiv>
       </Style.Menu>
     </Style.Home>
   );

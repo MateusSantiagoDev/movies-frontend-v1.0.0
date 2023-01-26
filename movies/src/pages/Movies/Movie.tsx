@@ -19,11 +19,6 @@ export function Movie() {
     setMovie(response);
   }
 
-  async function updateCardMovie(card: Card) {
-    const response = await Api.updateMovie(card);
-    setUpdateMovie(response);
-  }
-
   async function deleteCardMovie(id: string) {
     const response = await Api.deleteMovie(id);
     if (response) {
@@ -60,7 +55,7 @@ export function Movie() {
                 <Style.MovieDivMenu>
                   <Style.MovieButtonMenu
                     onClick={() => {                      
-                      
+                      navigate(Path.FORM_MOVIE_UPDATE + el.id);
                     }}
                   >
                     Atualizar

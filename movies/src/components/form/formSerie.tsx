@@ -47,7 +47,7 @@ export function FormSerie() {
                 Salvar
             </Style.buttonformProfile>
             <Style.buttonformProfile type='submit' onClick={() => {
-                navigate(Path.LOGIN)
+                navigate(Path.HOME)
             }}>Voltar
             </Style.buttonformProfile>
             </Style.divbuttonformProfile>

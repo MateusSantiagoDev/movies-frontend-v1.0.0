@@ -169,12 +169,25 @@ export const Menu = styled.div`
   `}
 `;
 
+export const MenuHomeDiv = styled.div`
+${({ theme }) => css`
+background-color: ${theme.colors.primaryColor};
+height: 9vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 1rem;
+cursor: pointer;
+`}
+`
+
 export const MenuItem = styled.button`
   ${({ theme }) => css`
-    margin: 1.5rem 2rem;
-    cursor: pointer;
+    
     border: none;
     font-family: ${theme.source.fontFamily};
-    background-color: ${theme.colors.baseBg3};
+    background-color: ${theme.colors.primaryColor};  
+    
   `}
 `;

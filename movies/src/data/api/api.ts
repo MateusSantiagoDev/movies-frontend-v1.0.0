@@ -112,7 +112,7 @@ export const Api = {
     } catch (err) {}
   },
 
-  getById: async (id: string) => {
+  getMovieById: async (id: string) => {
     try {
       const response = await axios.get(`/movie/${id}`);
       return response.data;
