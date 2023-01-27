@@ -1,4 +1,5 @@
 export type FormInput = {
+  userEmail: string;
   movie: string;
   serie: string;
   anime: string;

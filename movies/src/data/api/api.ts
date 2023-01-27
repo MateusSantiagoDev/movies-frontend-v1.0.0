@@ -3,10 +3,11 @@ import {
   CardRequest,
   LoginRequest,
   profileRequest,
+  UserRequest,
 } from "../types/types";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://movies-backend-production.up.railway.app";
 axios.defaults.headers.post["content-type"] = "application/json";
 
 axios.interceptors.request.use(
@@ -39,18 +40,28 @@ export const Api = {
     try {
       const response = await axios.post("/auth", { email, password });
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("email", response.data.user.email);
+      console.log(response);
       return response.data;
     } catch (err) {
       alert(err);
     }
   },
 
-  createPorfile: async ({ movie, serie, anime }: profileRequest) => {
+  createUser: async ( user: UserRequest) =>{
+     try {
+         const response = await axios.post("/user", user);
+         return response.data;
+     } catch (err) {}
+  },
+
+  createPorfile: async ({ userEmail, movie, serie, anime }: profileRequest) => {
     try {
       const response = await axios.post("/profiles", {
-        movie,
-        serie,
-        anime,
+        userEmail,
+        movie:[movie],
+        serie:[serie],
+        anime:[anime],
       });
       return response.data;
     } catch (err) {
@@ -98,9 +109,10 @@ export const Api = {
     }
   },
 
-  updateMovie: async (data: CardDataRequest) => {
+  updateMovie: async (data: CardDataRequest, id: string) => {
     try {
-      const response = await axios.patch("/movie", data);
+      console.log("api", id)
+      const response = await axios.patch(`/movie/${id}`, data);
       return response.data;
     } catch (err) {}
   },

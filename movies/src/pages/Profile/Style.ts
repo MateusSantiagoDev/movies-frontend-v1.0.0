@@ -21,7 +21,7 @@ justify-content: center;
 
 export const profilebuttonSair = styled.button`
 ${({theme})=> css`
-margin-left: 1rem;
+margin-left: 1rem
 `}
 `
 
@@ -37,16 +37,16 @@ export const profileElement = styled.div`
 ${({theme}) => css`
 background-color: ${theme.colors.baseBg1};
 height: auto;
-min-height: 75vh;
+min-height: 5vh;
 width: 100%;
 display: flex;
 flex-wrap: wrap;
-
 `}
 `;
 
 export const profileCard = styled.div`
 ${({theme}) => css`
+
 border: solid 2px ${theme.colors.baseBg2};
 border-radius: .3rem;
 height: 30vh;

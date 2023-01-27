@@ -9,8 +9,8 @@ import { Card } from "../../pages/Movies/types/movieCard";
 export function FormMovie() {
   const [card, setCard] = useState<Card[]>([])
   const navigate = useNavigate();
-  const { id } = useParams();
-
+ 
+  const id = useParams().id?.replace(":id", "")
   
     async function getCardById() {
       if(id) {
@@ -33,9 +33,15 @@ export function FormMovie() {
       image: e.currentTarget.image.value,
     };      
      
-      
+     /*  setCard({ ...data}) */
      if(id){
-      const response = await Api.updateMovie(id, data)      
+      console.log("id", id)
+
+      
+     
+      
+      const response = await Api.updateMovie(data, id)  
+      console.log("log 2", response)    
       if(response){
         navigate(Path.MOVIES);
       }

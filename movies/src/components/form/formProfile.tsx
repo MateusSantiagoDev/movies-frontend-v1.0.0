@@ -11,6 +11,7 @@ export function Form() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data: FormInput = {
+      userEmail: localStorage.getItem("email")||"",
       movie: e.currentTarget.movie.value,
       serie: e.currentTarget.serie.value,
       anime: e.currentTarget.anime.value,
@@ -26,7 +27,7 @@ export function Form() {
     
         <Style.Form>
           <Style.FormData onSubmit={handleSubmit}>
-            <h2>Perfil</h2>
+            <h2>Perfil</h2>          
             <Style.inputProfile
               type="text"
               placeholder="digite o ID do filme"

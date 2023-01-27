@@ -4,6 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { Path } from "../../types/routes";
 import chevron from "../../assets/images/chevron.png";
 
+type teste = {
+  image: string
+}
 
 export function Home() {
   const navigate = useNavigate();
@@ -11,9 +14,9 @@ export function Home() {
   const serieRef = useRef("null")
   const animeRef = useRef("null")
   
-  const [stateMovie, setStateMovie] = useState<string[]>([])
-  const [stateAnime, setStateAnime] = useState<string[]>([])
-  const [stateSerie, setStateSerie] = useState<string[]>([])
+  const [stateMovie, setStateMovie] = useState<teste[]>([])
+  const [stateAnime, setStateAnime] = useState<teste[]>([])
+  const [stateSerie, setStateSerie] = useState<teste[]>([])
 
 
    useEffect(() => {
@@ -25,7 +28,7 @@ export function Home() {
 
   }, []) 
 
-   if (!stateMovie || !stateMovie.length) {
+    if (!stateMovie || !stateMovie.length) {
     return null;
   }
 
@@ -37,7 +40,7 @@ export function Home() {
     return null;
   } 
 
- /*  const handleLeftClick = (e) => {
+ /*   const handleLeftClick = (e) => {
     e.preventDefault();
     movieRef.current.scrollLeft -= movieRef.current.offsetWidth;
   };
@@ -45,21 +48,34 @@ export function Home() {
   const handleRightClick = (e) => {
     e.preventDefault();
     movieRef.current.scrollLeft += movieRef.current.offsetWidth;
-  }; */
-
+  };  */
+ 
+ function logout(){
+  
+  localStorage.removeItem("token");
+  navigate(Path.LOGIN);
+ }
  
 
   return (
     <Style.Home>
+      <Style.HomeLogoutDiv>
+      <Style.HomeLogoutButton onClick={logout}>
+        sair
+      </Style.HomeLogoutButton>
+      </Style.HomeLogoutDiv>
       <Style.PageHome>
         <h3>Movies</h3>
         <Style.carouselHomeMovie>
           <Style.whapperHomeMovie>
-             <Style.chevronLeghtMovie src={chevron} alt="chevron" />
-             <Style.carousel >
-              {stateMovie.map((el) => (
-            <Style.carouselItem src={el} alt="img"/>
-            ))}
+             <Style.chevronLeghtMovie  src={chevron} alt="chevron"/>
+             <Style.carousel>          
+              {stateMovie.map((el) => {
+                console.log(el)
+                return (
+                  <Style.carouselItem src={el.image} alt="img"/>
+                )
+              })}
             </Style.carousel>
              <Style.chevronRightMovie src={chevron} alt="chevron" />
           </Style.whapperHomeMovie>
@@ -70,7 +86,7 @@ export function Home() {
           <Style.chevronLeghtSerie src={chevron} alt="chevron"/>
           <Style.carousel >
           {stateSerie.map((el) => (
-          <Style.carouselItem src={el} alt="img"/>
+          <Style.carouselItem src={el.image} alt="img"/>
           ))}
             </Style.carousel>
           <Style.chevronRightSerie src={chevron} alt="chevron"/>
@@ -82,7 +98,7 @@ export function Home() {
           <Style.chevronLeghtAnime src={chevron} alt="chevron"/>
           <Style.carousel >
           {stateAnime.map((el) => (
-          <Style.carouselItem src={el} alt="img"/>
+          <Style.carouselItem src={el.image} alt="img"/>
           ))}
           </Style.carousel>
           <Style.chevronRightAnime src={chevron} alt="chevron"/>

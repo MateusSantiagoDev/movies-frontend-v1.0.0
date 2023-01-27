@@ -54,7 +54,8 @@ export function Movie() {
                 <p>{el.avaliation}</p>
                 <Style.MovieDivMenu>
                   <Style.MovieButtonMenu
-                    onClick={() => {                      
+                    onClick={() => {   
+                      console.log("movie", el.id)                   
                       navigate(Path.FORM_MOVIE_UPDATE + el.id);
                     }}
                   >

@@ -80,9 +80,9 @@ export const carousel = styled.div`
 `
 
 export const carouselItem = styled.img`
- height: 340px;
+ height: 240px;
   object-fit: cover;
-  width: calc(100%);
+  width: calc(20%);
   margin-left: 0px;
 `
 
@@ -191,3 +191,19 @@ export const MenuItem = styled.button`
     
   `}
 `;
+
+export const HomeLogoutDiv = styled.div`
+${({ theme }) => css`
+height: 3vh;
+width: 5%;
+position: absolute;
+top: 0;
+right: 0;
+margin-top: .5rem;
+`}
+`
+export const HomeLogoutButton = styled.button`
+margin-top: .5rem;
+padding: .3rem;
+cursor: pointer;
+`
