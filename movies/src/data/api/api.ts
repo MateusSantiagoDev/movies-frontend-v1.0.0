@@ -148,6 +148,14 @@ export const Api = {
     } catch (err) {}
   },
 
+  updateSerie: async (data: CardDataRequest, id: string) => {
+    try {
+      console.log("api", id)
+      const response = await axios.patch(`/serie/${id}`, data);
+      return response.data;
+    } catch (err) {}
+  },
+
   deleteSerie: async (id: string) => {
     try {
       const response = await axios.delete(`/serie/${id}`);
@@ -168,6 +176,14 @@ export const Api = {
         avaliation,
         image,
       });
+      return response.data;
+    } catch (err) {}
+  },
+
+  updateAnime: async (data: CardDataRequest, id: string) => {
+    try {
+      console.log("api", id)
+      const response = await axios.patch(`/anime/${id}`, data);
       return response.data;
     } catch (err) {}
   },

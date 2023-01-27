@@ -51,7 +51,7 @@ export function Serie() {
             <Style.SerieDivMenu>
                   <Style.SerieButtonMenu
                     onClick={() => {                      
-                      
+                      navigate(Path.FORM_SERIE_UPDATE + el.id);
                     }}
                   >
                     Atualizar

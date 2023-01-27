@@ -49,7 +49,7 @@ export function Anime() {
             <Style.AnimeDivMenu>
                   <Style.AnimeButtonMenu
                     onClick={() => {                      
-                      
+                      navigate(Path.FORM_ANIME_UPDATE + el.id);
                     }}
                   >
                     Atualizar

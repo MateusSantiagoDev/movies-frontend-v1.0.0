@@ -1,6 +1,6 @@
 import * as Style from './style';
 import { FormDataProfile } from './types/types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FormEvent } from 'react';
 import { Path } from '../../types/routes';
 import { Api } from '../../data/api/api';
@@ -8,6 +8,7 @@ import { Api } from '../../data/api/api';
 
 export function FormAnime() {
     const navigate = useNavigate();
+    const id = useParams().id?.replace(":id", "");
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -18,10 +19,17 @@ export function FormAnime() {
             image: e.currentTarget.image.value,
         }
 
+        if(id){        
+          const response = await Api.updateAnime(data, id)             
+          if(response){
+            navigate(Path.ANIMES);
+          }
+         }else{
         const response = await Api.createAnime(data);
         if (response) {
           navigate(Path.ANIMES);
         }
+      }
 
 
     }

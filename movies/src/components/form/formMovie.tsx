@@ -34,10 +34,7 @@ export function FormMovie() {
     };      
      
      /*  setCard({ ...data}) */
-     if(id){
-      console.log("id", id)
-
-      
+     if(id){     
      
       
       const response = await Api.updateMovie(data, id)  
