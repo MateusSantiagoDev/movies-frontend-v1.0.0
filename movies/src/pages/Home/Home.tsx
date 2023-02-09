@@ -10,9 +10,9 @@ type teste = {
 
 export function Home() {
   const navigate = useNavigate();
-  const movieRef = useRef("null")
+ /*  const movieRef = useRef("null")
   const serieRef = useRef("null")
-  const animeRef = useRef("null")
+  const animeRef = useRef("null") */
   
   const [stateMovie, setStateMovie] = useState<teste[]>([])
   const [stateAnime, setStateAnime] = useState<teste[]>([])
@@ -28,7 +28,7 @@ export function Home() {
 
   }, []) 
 
-    if (!stateMovie || !stateMovie.length) {
+ /*    if (!stateMovie || !stateMovie.length) {
     return null;
   }
 
@@ -38,7 +38,7 @@ export function Home() {
 
   if (!stateAnime || !stateAnime.length) {
     return null;
-  } 
+  }  */
 
  /*   const handleLeftClick = (e) => {
     e.preventDefault();
